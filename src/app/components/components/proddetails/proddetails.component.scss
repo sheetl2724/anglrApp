@@ -1,0 +1,28 @@
+h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    font-size: 25px;
+    border-bottom: 4px double #eee;
+    font-family: 'Droid Serif', serif;
+    font-weight: 400;
+}
+h1,  h3, h4, h5, h6 {
+    color: #777777;
+}
+.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {
+    color: #ffffff;
+    background: #f75353;
+    border: 1px solid #ed4747;
+    border-radius: 5px;
+    padding: 0px;
+    font-family: inherit;
+    
+
+    
+}
+.p-color {
+    line-height: 3;
+    padding: 0px;
+    color: #337ab7;
+}

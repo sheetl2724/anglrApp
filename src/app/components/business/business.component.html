@@ -1,0 +1,182 @@
+<form [formGroup]="businessForm" (ngSubmit)="onSave()">
+  <div class="business-box">
+    <div class="grid formgrid p-fluid">
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="company_name" class="font-medium text-900"
+          >Contact Person FirstName <a style="color: red">*</a></label
+        >
+        <input
+          id="contactPersonFirstName"
+          type="text"
+          pInputText
+          formControlName="contactPersonFirstName"
+          name="contactPersonFirstName"
+          [(ngModel)]="contactPersonFirstName"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="contactPersonLastName" class="font-medium text-900"
+          >Contact Person Last Name <a style="color: red">*</a></label
+        >
+        <input
+          id="contactPersonLastName"
+          type="text"
+          pInputText
+          formControlName="contactPersonLastName"
+          name="contactPersonLastName"
+          [(ngModel)]="contactPersonLastName"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="establishmentName" class="font-medium text-900"
+          >Establishment Name <a style="color: red">*</a></label
+        >
+        <input
+          id="establishmentName"
+          type="text"
+          pInputText
+          formControlName="establishmentName"
+          name="establishmentName"
+          [(ngModel)]="establishmentName"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="establishmentGSTNo" class="font-medium text-900"
+          >Establishment GST No
+        </label>
+        <input
+          id="establishmentGSTNo"
+          type="text"
+          pInputText
+          formControlName="establishmentGSTNo"
+          name="establishmentGSTNo"
+          [(ngModel)]="establishmentGSTNo"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="establishmentPhoneNo" class="font-medium text-900"
+          >Establishment Phone No
+        </label>
+        <input
+          id="establishmentPhoneNo"
+          type="text"
+          pInputText
+          formControlName="establishmentPhoneNo"
+          name="establishmentPhoneNo"
+          [(ngModel)]="establishmentPhoneNo"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="mobileNumber" class="font-medium text-900"
+          >Mobile Number <a style="color: red">*</a></label
+        >
+        <input
+          id="mobileNumber"
+          type="text"
+          pInputText
+          formControlName="mobileNumber"
+          name="mobileNumber"
+          [(ngModel)]="mobileNumber"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-4">
+        <label for="email" class="font-medium text-900"
+          >Email<a style="color: red">*</a></label
+        >
+        <input
+          id="email"
+          type="text"
+          pInputText
+          formControlName="email"
+          name="email"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-1">
+        <label for="doorNo" class="font-medium text-900"
+          >Door No<a style="color: red">*</a></label
+        >
+        <input
+          id="doorNo"
+          type="text"
+          pInputText
+          formControlName="doorNo"
+          name="doorNo"
+          [(ngModel)]="doorNo"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-3">
+        <label for="buildingName" class="font-medium text-900"
+          >Building Name</label
+        >
+        <input
+          id="buildingName"
+          type="text"
+          pInputText
+          formControlName="buildingName"
+          name="buildingName"
+          [(ngModel)]="buildingName"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-3">
+        <label for="due_date" class="font-medium text-900"
+          >Pin Code<a style="color: red">*</a></label
+        >
+        <input
+          id="pinCode"
+          type="text"
+          pInputText
+          formControlName="pinCode"
+          name="pinCode"
+          [(ngModel)]="pinCode"
+        />
+      </div>
+      <div class="field mb-4 col-12 md:col-8">
+        <label for="address" class="font-medium text-900"
+          >Address<a style="color: red">*</a></label
+        >
+        <textarea
+          id="address"
+          pinputtextarea=""
+          class="p-inputtextarea p-inputtext p-component p-element p-inputtextarea-resizable"
+          ng-reflect-auto-resize="true"
+          rows="5"
+          formControlName="address"
+          name="address"
+          [(ngModel)]="address"
+          style="height: 132px; overflow: hidden; resize: vertical"
+        ></textarea>
+      </div>
+
+      <div class="field mb-4 col-12 flex align-items-center">
+        <p-checkbox
+          [(ngModel)]="isAgreed"
+          formControlName="isAgreed"
+          name="isAgreed"
+          binary="true"
+          inputId="chk1"
+          (onChange)="onCheckboxChange()"
+        ></p-checkbox>
+        <span class="ml-2 text-700"
+          >I Agree -
+          <span style="color: rgb(253, 121, 71)"> Terms And Conditions</span
+          >&nbsp;&&nbsp;<span style="color: rgb(253, 121, 71)"
+            >Privacy Policy</span
+          ></span
+        >
+        <div style="margin-left: 1200px">
+          <button
+            pButton
+            pRipple
+            type="submit"
+            label="Register"
+            icon="pi pi-file"
+            [disabled]="businessForm.invalid"
+            class="w-auto p-button"
+          ></button>
+        </div>
+      </div>
+      <div class="surface-border border-top-1 opacity-50 mb-4 col-12"></div>
+    </div>
+  </div>
+</form>

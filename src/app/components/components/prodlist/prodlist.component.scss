@@ -1,0 +1,102 @@
+.p-Tooltip {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff;           /* White text */
+    border: 1px solid #0056b3; /* Darker blue border */
+    border-radius: 5px;       /* Optional: Rounded corners */
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .hover-image {
+    width: 300px;
+    height: auto;
+    display: block;
+    border: 1px solid #ed4747
+  }
+  
+  .hover-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f75353;
+    border: 1px solid #ed4747;
+    color: white;
+   
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+  }
+  
+  .image-container:hover .hover-button {
+    display: block; /* Show button when hovering */
+  }
+  .br-red {
+    background-color: #f75353 !important;
+}
+.highlight {
+  transform: scale(1.05);
+  box-shadow:  #f75353 !important;
+}
+.dion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.panl {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button >p-ripple{
+  color: #ffffff;
+  background: #f75353;
+  border: 1px solid #ed4747;
+  border-radius: 5px;
+  padding: 0px;
+  font-family: inherit;
+  
+
+  
+}
+.p-color {
+  line-height: 3;
+  padding: 0px;
+  color: #337ab7;
+}
+image-container {
+  position: relative;
+  width: 500px;  /* Set container width */
+  height: 300px; /* Set container height */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 25px;
+  height: auto;
+}
