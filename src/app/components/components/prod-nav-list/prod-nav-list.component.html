@@ -1,0 +1,13 @@
+<div class="card flex flex-wrap gap-2 justify-center" >
+    <p-button label="All Products" class="p-ripple p-button p-component p-button-danger" [routerLink]="['/prodlist']" routerLinkActive="active-link"  size="small" [raised]="true" />
+<!-- <p-button label="BREADS" class="p-ripple p-button p-component p-button-danger" [raised]="true"/>-->
+<p-button #menuButton label="BREADS" class="p-ripple p-button p-component p-button-danger" size="small" icon="pi pi-chevron-down " iconPos="right" (click)="menu.toggle($event)"></p-button>
+
+<p-menu #menu [popup]="true" [model]="items" class="p-color"></p-menu>
+<p-button label="BROWNIES" class="p-ripple p-button p-component p-button-danger" size="small"[raised]="true"  />
+<p-button label="CAKES" [raised]="true"class="p-ripple p-button p-component p-button-danger" size="small"size="small"/>
+<p-button label="COOKIES" [raised]="true" class="p-ripple p-button p-component p-button-danger" size="small" />
+<p-button label="VIENNOISERIE" [raised]="true" class="p-ripple p-button p-component p-button-danger" size="small" />
+<p-button label="SWEET PIES" [raised]="true" class="p-ripple p-button p-component p-button-danger" size="small"/>
+   
+</div>

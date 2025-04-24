@@ -1,0 +1,323 @@
+<div
+  class="surface-section px-5 py-8 md:px-6 lg:px-8"
+  style="padding-top: 0rem !important; padding-bottom: 0rem !important"
+>
+<!-- <div class="card flex justify-center">
+  <p-progress-spinner ariaLabel="loading" />
+</div>-->
+  <div class="card flex flex-wrap gap-2 justify-center">
+    <p-button
+      label="All Products"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      (click)="loadProd()"
+      [routerLink]="['/home']" 
+      routerLinkActive="active-link"
+      size="small"
+      [raised]="true"
+    />
+    <!-- <p-button label="BREADS" class="p-ripple p-button p-component p-button-danger" [raised]="true"/>-->
+    <p-button
+      #menuButton
+      label="BREADS"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small"
+      icon="pi pi-chevron-down "
+      iconPos="right"
+      (click)="menu.toggle($event)"
+    ></p-button>
+
+    <p-menu #menu [popup]="true" [model]="items" class="p-color"></p-menu>
+    <p-button
+      label="BROWNIES"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small" (onClick)="getBrownie()"
+      [raised]="true"
+    />
+    <p-button
+      label="CAKES"
+      [raised]="true"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small" (onClick)="getCake()"
+     
+    />
+    <p-button
+      label="COOKIES"
+      [raised]="true" (onClick)="getCookie()"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small"
+    />
+    <p-button
+      label="SAVOURIES"
+      [raised]="true" (onClick)="getSavouries()"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small"
+    />
+    <p-button
+      label="VIENNOISERIE"
+      [raised]="true" (onClick)="getViennoiserie()"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small"
+    />
+    <p-button
+      label="SWEET PIES"
+      [raised]="true" (onClick)="getPie()"
+      class="p-ripple p-button p-component p-button-danger" severity="danger" 
+      size="small"
+    />
+  </div>
+
+  <div class="card flex justify-center mt-4">
+    <input type="text" value="Select Required On Date" style="border: none; color: brown;font-family: 'Open Sans', sans-serif;    font-size: 18px;"/>
+  <!--<form [formGroup]="formGroup">
+      <p-calendar formControlName="date" />
+    </form>-->
+
+    <a pRipple class="flex px-6 p-3 h-full lg:px-3 lg:py-2 align-items-center text-600 border-left-2 lg:border-bottom-2 lg:border-left-none border-transparent hover:border-blue-500 font-medium cursor-pointer transition-colors transition-duration-150">
+      
+      <span><p-calendar styleClass="w-full md:w-14rem " [readonlyInput]="true" inputId="range"></p-calendar><i class="pi pi-calendar mr-2"></i></span>
+  </a>
+
+    <div style="margin-left: 20rem !important">
+    <!-- <span class="p-input-icon-right w-full mt-2 md:mt-0 md:w-15rem">
+        <i class="pi pi-search"></i>
+        <input
+          type="text" [(ngModel)]="searchText"
+          (input)="searchProd(searchText)"
+          pInputText
+          placeholder="Search"
+          class="w-full md:w-18rem border-round"
+          style="height: 50px"
+        />
+      </span>-->
+      <span class="p-input-icon-right mt-5 mb-2 md:mt-0 md:mb-0 w-full lg:w-25rem">
+        <i class="pi pi-search text-gray-400"></i>
+          
+          <input type="text" class="p-inputtext w-full lg:w-25rem surface-50" placeholder="Search" [(ngModel)]="searchText" (input)="searchProd(searchText)"/>
+    </span>
+    </div>
+  </div>
+  
+
+  <div
+    class="grid -mt-3 -ml-3 -mr-3"
+    style="
+      background-color: rgb(240, 237, 237);
+      padding-top: 0rem !important;
+      padding-bottom: 0rem !important;
+      margin-top: 1rem !important;
+    "
+  >
+    @for(prod of fileredProductList;track $index){
+
+    <div class="col-12 md:col-6 lg:col-3 mb-5 lg:mb-0">
+      <div class="p-2" [ngClass]="{ higlight: showButton }">
+        @if (prod.ImagePathMedium!=null &&prod.ImagePathMedium!='') {
+          <div
+          class="mb-3 relative"
+          (mouseover)="showButton = true"
+          (mouseleave)="showButton = false"
+        >
+          <div class="image-container">
+            <a
+              routerLink="/proddetails"
+              [queryParams]="{ ID: prod.ID }"
+              routerLinkActive="true"
+            >
+              <img
+                [src]="'assets' + prod.ImagePathMedium"
+                class="w-full"
+                alt="Upload Image"
+              />
+            </a>
+
+            <span class="logo-type"
+              >
+            @if(prod.DescriptionDetail?.includes('eggs'.toLowerCase())||prod.DescriptionDetail?.includes('egg'.toLowerCase())){
+              <img
+              src="assets/Content/CakeFactory/img/nonveg.png"
+              width="20"
+              height="20"
+              style="border: none" class="overlay-image"
+          />
+            }@else{
+              <img
+              src="assets/Content/CakeFactory/img/veg.png"
+              width="20"
+              height="20"
+              style="border: none" class="overlay-image"
+          />
+            }
+            </span>
+           
+          </div>
+          <button
+            *ngIf="showButton"
+            type="button"
+            (click)="onButtonClick()"
+            pRipple
+            class="border-1 border-white-alpha-20 border-round py-2 px-3 absolute bg-black-alpha-30 text-white inline-flex align-items-center justify-content-center hover:bg-black-alpha-40 transition-colors transition-duration-300 cursor-pointer font-semibold"
+            style="
+              bottom: 1rem;
+              left: 1rem;
+              width: calc(100% - 2rem);
+              backdrop-filter: blur(4px);
+            "
+          >
+            <i class="pi pi-shopping-cart mr-3 text-base"></i>
+            <span class="text-base">Login To Add</span>
+          </button>
+        </div>
+        <div class="flex flex-column align-items-center">
+          <span class="text-xl text-900 font-medium mb-3">{{
+            prod.ProductName
+          }}</span>
+          <span class="text-xl text-900 mb-3">${{ prod.Price }}</span>
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+  <br />
+  <div class="grid -mt-3 -ml-3 -mr-3" style="margin-top: 70px">
+    <button class="dion" (click)="toggleDiv()">
+      <p style="font-size: 15px"><b>HOW TO PLACE AN ORDER</b></p>
+    </button>
+
+    <div class="panl" style="display: inline-block" *ngIf="isVisible">
+      <h4>1. Login</h4>
+      <h4>2. Select date of requirement.</h4>
+      <h4>3. Add items to Cart.</h4>
+      <h4>4. Check Out.</h4>
+      <h4>5. Pick up 4:00 to 7:00pm</h4>
+    </div>
+  </div>
+  <br />
+  <div class="grid -mt-3 -ml-3 -mr-3" style="margin-top: 70px">
+    <button class="dion" (click)="toggleDiv2()">
+      <p style="font-size: 15px">
+        <b>IMPORTANT STORAGE INSTRUCTIONS FROM HONORE</b>
+      </p>
+    </button>
+    <div
+      class="surface-section panl"
+      style="display: inline-block"
+      *ngIf="isVisible2"
+    >
+      <div class="grid shadow-2 border-round surface-card">
+        <div
+          class="col-12 md:col-6 md:border-right-1 border-bottom-1 surface-border"
+        >
+          <div class="m-3">
+            <div class="text-900 font-medium text-xl mb-3">
+              <h4 style="color: brown">BREAD Storage</h4>
+            </div>
+            <p>
+              Since we don’t use any preservatives or white sugar in our breads,
+              we recommend storing them as explained below
+            </p>
+            <h4 style="color: brown">
+              Can be stored at room temperature in a container / paper bag
+            </h4>
+            <ul>
+              <li>
+                Sourdough doesn’t get spoilt / form mould unless contaminated.
+                It will only lose moisture.
+              </li>
+              <li>Large breads - 3 / 4 days</li>
+              <li>Small breads - 2 days</li>
+            </ul>
+            <h4 style="color: brown">Cling wrapped and kept in fridge</h4>
+            <ul>
+              <li>Large breads - 1 week</li>
+              <li>Small breads - 3 / 4 days</li>
+            </ul>
+            <h4 style="color: brown">Freezer:</h4>
+            <ul>
+              <li>Large breads - 2 weeks</li>
+              <li>Small breads - 1 week</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 md:col-6 border-bottom-1 surface-border">
+          <div class="m-3">
+            <h4 style="color: brown">How to freeze breads</h4>
+            <ul>
+              <li>Always cling wrap before freezing</li>
+              <li>Freezer temperature -18°C or lower</li>
+              <li>Never freeze again after thawing</li>
+              <li>Large breads can be sliced, cling wrapped and frozen</li>
+              <li>Follow thawing instructions carefully</li>
+            </ul>
+            <h4 style="color: brown">How to thaw frozen bread</h4>
+            <ul>
+              <li>
+                Large breads - Leave out with cling wrap for 2.5 hrs or
+                overnight in fridge
+              </li>
+              <li>
+                Small breads - Leave out with cling wrap for 1hr or overnight in
+                fridge.
+              </li>
+              <li>
+                Pre-heated oven for 30 mins at 200°C and place the loaf in it
+                for 3 to 4 mins for large breads and 2 to 3 mins for small
+                breads.
+              </li>
+              <li>
+                You can also slice and toast on tawa or toaster to consume. Not
+                to use microwave.
+              </li>
+            </ul>
+            <h4 style="color: brown">Viennoiserie</h4>
+            <ul>
+              <li>
+                Can remain in box for 2/3 days. If cling wrapped and kept in
+                fridge, it is good for 4/5 days. Heat it up for 2/3 minutes at
+                180 deg before consuming.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" style="border: 0px solid black">
+          <div class="col-sm-9" style="height: 185px; border-width: 2px">
+            <h4 style="color: brown">Final recommendations - GOLDEN RULES</h4>
+            <ol>
+              <li>
+                <h5>
+                  Always maintain the bread in the refrigerator in between uses
+                </h5>
+              </li>
+              <li>
+                <h5>
+                  Always protect the bread from drying up: cling wrap, zip-lock
+                  cover or air-tight container
+                </h5>
+              </li>
+              <li>
+                <h5>
+                  Follow freezing, thawing, toasting instructions as provided
+                </h5>
+              </li>
+              <li><h5>Use of serrated bread knife for slicing</h5></li>
+              <li><h5>Remember never to use microwave</h5></li>
+            </ol>
+          </div>
+        </div>
+        <div class="col-12 md:col-6 md:border-bottom-1 surface-border">
+          <div class="m-3">
+            <img
+              src="assets/Content/ClientImages/Fresh-bread-hand-drawing-vector-material-05.jpg"
+              alt=""
+              class="img-responsive"
+              style="margin-left: 700px; height: 230px; width: 36%"
+            />
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+
+  <div class="p-0"></div>
+</div>

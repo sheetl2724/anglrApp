@@ -1,0 +1,50 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <div class="p-5" style="margin-left: 496px;text-align: left;">
+    
+        <div class="surface-card p-4 shadow-2 border-round  lg:w-6" style="width:360px">
+            <div class="text-center mb-5">
+                <img src="assets/images/blocks/logos/hyper.svg" alt="Image" height="50" class="mb-3">
+                <div class="text-3xl font-medium mb-3" style="color: #666666;">Login</div>
+                <span class=" font-medium line-height-3" style="color: forestgreen;font-size: 19px;">Create New Account</span>
+                <a class="font-medium no-underline ml-2  cursor-pointer"  routerLink="/register" routerLinkActive="active-link">Sign Up!</a>
+            </div>
+        
+            <div >
+                <div class="form-group" [ngClass]="displayFieldCss('email')">
+                    <label for="email" class="block font-medium mb-2" style="color: #666666;">Enter Email/Mobile Number <a style="color: red;">*</a></label>
+                    <input  id="email" type="text"  formControlName="email" name="email" placeholder="Email address" pInputText class="w-full mb-3">
+                     
+                    <small  *ngIf="email.invalid && (email.dirty || email.touched)"     class="block p-error"          >
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Email should be valid</div>
+          </small>
+       
+                </div>
+                <div class="form-group" [ngClass]="displayFieldCss('password')">
+                    <label for="password" class="block font-medium mb-2" style="color: #666666;">Enter Password</label>
+                    <input id="password" type="password" formControlName="password" name="password" placeholder="Password" pInputText class="w-full mb-3">
+                    <small
+                    *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="block p-error"
+                  >
+                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                  </small>
+                </div>
+               
+        
+               
+                <div class="flex align-items-center justify-content-between mb-6">
+                    <div class="flex align-items-center">
+                        <p-checkbox id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
+                        <label for="rememberme1">Remember me</label>
+                  </div>
+                    <a class="font-medium no-underline ml-2  text-right cursor-pointer" style="color:gray ;">Forgot password?</a>
+                </div>
+        
+                <button pButton pRipple label="Sign In" style="background: #f75353" icon="pi pi-user" class="w-full"   [disabled]="loginForm.invalid"
+                type="submit" ></button>
+            </div>
+        </div>
+    </div>
+    
+</form>

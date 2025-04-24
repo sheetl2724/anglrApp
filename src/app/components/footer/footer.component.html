@@ -1,0 +1,69 @@
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="grid pb-6 border-bottom-1 border-300" style="margin-left:16.5rem">
+        <div class="col-12 md:col-3" style="width: 33.33333333%;">
+            <div class="text-900 font-bold line-height-3 mb-3"><h4 style="color: gray">On-line Payment Clients</h4></div>
+            <div class="col-fixed flex flex-wrap flex-order-1 lg:flex-order-0">
+                <a><img src="assets/Content/CakeFactory/img/payment/Razorpay.gif" alt="Razorpay" class="payment img-responsive w-3rem mr-3"></a>
+                <a><img src="assets/Content/CakeFactory/img/payment/mastercard.gif" class="payment img-responsive w-3rem mr-3" alt="Mastercard"></a>
+                <a><img src="assets/Content/CakeFactory/img/payment/visa.gif" class="payment img-responsive w-3rem mr-3" alt="Visa"></a>
+                <a><img src="assets/Content/CakeFactory/img/payment/Upi.png" class="payment img-responsive w-3rem mr-3" alt="Upi"></a>
+                <a><img src="assets/Content/CakeFactory/img/payment/phonepe.jpg" class="payment img-responsive w-3rem" alt="Phonepe"></a>
+            </div>
+            <a class="text-700 block cursor-pointer line-height-3 mb-2">Terms and Conditions</a>
+            <a class="text-700 block cursor-pointer line-height-3 mb-2">Privacy Policy</a>
+           
+        </div>
+        <div class="col-12 md:col-3" style="width: 33.33333333%;">
+            <div class="text-900 font-bold line-height-3 mb-3"><h4 style="color: gray;">Popular Products</h4></div>
+            <div class="card flex justify-center">
+                <div *ngIf="imgList && imgList.length > 0" class="grid grid-cols-12 gap-4" style="max-width: 800px;">
+                    <div *ngFor="let image of imgList; let index = index" class="col-span-4" key="index">
+                        <img [src]="'http://localhost:1337'+image.image.url" [alt]="image.image.name" style="cursor: pointer" (click)="imageClick(index)" />
+                    </div>
+                </div>
+                <p-galleria
+                 
+                    [(activeIndex)]="activeIndex"
+                    [responsiveOptions]="responsiveOptions"
+                    [containerStyle]="{ 'max-width': '850px' }"
+                    [numVisible]="4"
+                    [circular]="true"
+                    [fullScreen]="true"
+                    [showItemNavigators]="true"
+                    [showThumbnails]="false"
+                >
+                    <ng-template #item let-item>
+                        <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+                    </ng-template>
+                </p-galleria>
+            </div>
+           <!--  <a class="text-700 block cursor-pointer line-height-3 mb-2">Get Started</a><span><a class="text-700 block cursor-pointer line-height-3 mb-2">Learn</a></span>
+                      
+            <a class="text-700 block cursor-pointer line-height-3">Case Studies</a>-->
+        </div>
+        <div class="col-12 md:col-3" style="width: 33.33333333%;">
+            <div class="text-900 font-bold line-height-3 mb-3"><h4 style="color: gray;">Contact Us</h4></div>
+            <a class="text-700 block cursor-pointer line-height-3 mb-2"><div class="text-gray-300 line-height-3 mb-6">
+                <i class="fa fa-map-marker br-red"></i>
+                <span style="font-size: 13px;color: gray;"><i class="pi pi-map-marker" style="color:orangered"></i> HONORE,<br> # 549/3, Ground
+                floor,<br>9th A Main, Hoysala Nagar, 1st stage,<br>Indiranagar Bangalore - 560038</span> </div></a>
+            <a class="text-700 block cursor-pointer line-height-3 mb-2"><i class="pi pi-map" style="color:orange"></i> <span>Landmark : <br> Located on the road opposite to <br> Nagarjuna Restaurant<br>on Double road,Indiranagar</span></a>
+            <a class="text-700 block cursor-pointer line-height-3 mb-2"><span style="font-size: 13px; color: orange;"><i class="pi pi-phone" style="color:forestgreen"></i>+91 88842 22250</span></a>
+            <a class="text-700 block cursor-pointer line-height-3">
+              <i class="pi pi-envelope" style="color:#32c8de !important"></i>  support&#64;honore.in</a>
+        </div>
+       
+    </div>
+    <div class="flex flex-wrap align-items-center justify-content-between mt-6">
+        <div class="flex align-items-center justify-content-start md:mb-0 mb-3">
+            <p style="text-align: left;color: #616161;">Copyright © 2021 Greensoul Artisans Pvt. Ltd.</p>
+        </div>
+        <div class="flex align-items-center justify-content-between md:mb-0 mb-3">
+           
+        </div>
+        <div class="flex align-items-center justify-content-between">
+            <p style="text-align: right;color: #616161;">Designed &amp; Developed by <a style="text-decoration: none;color: #616161;" href="https://rpncsystems.com/" routerLinkActive="active-link">rpncsystems.com</a></p>
+        </div>
+    </div>
+  
+  </div>

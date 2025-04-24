@@ -1,0 +1,74 @@
+<div style="background-color:rgb(251, 248, 248);"><div class="relative p-6 overflow-hidden" style=" padding: 0 rem !important;  margin-top: 4px;
+    padding-bottom: 89px; background: url(&quot;assets/Content/ClientImages/Banner/honore_banner_about.jpg&quot;) center center repeat-x;">
+    <div class="container" style="text-align: center;color: white;"><img src="assets/Content/CakeFactory/img/crown.png" alt="" class="img-responsive">
+        <h2 class="white" >ITEM DETAIL </h2> <span class="vu_ph-subtitle" style="color: whitesmoke;"><b>Take a look at our
+                bakery and discover how we work</b></span>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8" >
+    <div class="grid" style="    margin-right: 7.5rem;
+    margin-left: 10.5rem;
+    margin-top: -2.5rem;background-color: rgb(251, 248, 248)">
+     <div class="col-6 lg:col-4"  >
+        <div class="flex">
+            <div>
+                
+                    <img [src]="'assets' +productObj.ImagePathLarge" class="w-full" />
+                 
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 py-5 lg:py-3 lg:pl-5" >
+        
+        <div class="flex align-items-center justify-content-between mb-4" >
+            <span class="text-xl font-medium text-700"><h3>{{ productObj.ProductName }}</h3></span>
+            <span class="text-xl font-medium text-700" style="color:#777777 ;">Price  ${{ productObj.Price }}</span>
+        </div>
+        
+        <p class="p-0 mt-0 mb-5 text-l font-medium line-height-3 text-700" style="font-size: large; margin-bottom: 2rem !important;" [innerHTML]="productObj.Description">
+        
+        </p>
+        
+            <div class="flex align-items-center justify-content-between lg:justify-content-start mb-5">
+                <table>
+                    
+                    <tr class="mr-3 text-l font-medium text-700">
+                        Catergory<td>:</td><td>{{productObj.Category}}</td> 
+                    </tr><br>
+                    <tr class="mr-3 text-l font-medium text-700">
+                            Weight<td>:</td><td>{{productObj.Weight}} {{productObj.WeightUnit}}</td>
+                    </tr>
+                </table>
+            </div>
+           
+          
+    
+        
+     
+
+
+
+
+       <!-- <button pButton pRipple icon="pi pi-shopping-cart" class="w-full mb-5" style="background: #f75353;
+        color: white;
+        border: 1px solid #ed4747;" label="Login To Add"  routerLink="/login" routerLinkActive="active-link" ></button>-->
+<p-button
+label="Login To Add"
+class="p-ripple p-button p-component p-button-danger" severity="danger" 
+
+[routerLink]="['/login']"
+routerLinkActive="active-link"
+size="small"
+[raised]="true"
+/>
+     
+    </div>
+   
+    <div  class="col-12 lg:col-6 py-5 lg:py-3 lg:pl-5" style="color: #777777; background-color: #fff;margin-left: 12px;
+    width: 98%;    margin-bottom: 12px;
+" [innerHTML]="productObj.DescriptionDetail"></div>
+    </div><br>
+</div>
