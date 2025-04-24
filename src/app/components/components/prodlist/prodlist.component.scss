@@ -100,3 +100,12 @@ image-container {
   width: 25px;
   height: auto;
 }
+.btn.btn-warning {
+  background: #f78153;
+  border: 1px solid #eb6c3a;
+  background-color: rgb(255,108,49);
+}
+
+.button_blink {
+  animation: glowing 2500ms infinite;
+}

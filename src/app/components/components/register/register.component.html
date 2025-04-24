@@ -14,6 +14,10 @@
         <p-radioButton name="userType" value="Business" [(ngModel)]="selectedType" inputId="business"></p-radioButton>
         <label for="business" class="text-gray font-small text-l mb-3">Business</label>
       </div>
+      <div *ngIf="selectedType === 'Community'">
+        <app-community></app-community>
+        
+      </div>
 
       <div *ngIf="selectedType === 'Individual'">
         <app-individual></app-individual>

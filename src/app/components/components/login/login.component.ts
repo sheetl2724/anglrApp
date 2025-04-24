@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-login',
   imports: [
@@ -20,6 +21,7 @@ import { CommonModule } from '@angular/common';
     RouterLink,
     RouterLinkActive,
     FormsModule,
+    InputTextModule,
     ReactiveFormsModule,CommonModule
   ],
   templateUrl: './login.component.html',
@@ -54,7 +56,7 @@ export class LoginComponent {
         if (response.length > 0 && response[0].password === password) {
           sessionStorage.setItem('email', email as string);
           //this.router.navigate(['/home2']);
-          this.router.navigate(['/home2'], { queryParams: { login: 'y' } });
+          this.router.navigate(['/home'], { queryParams: { login: 'y' } });
         } else {
           alert('email or password is wrong ');
           //this.msgService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' });

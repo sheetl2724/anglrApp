@@ -22,15 +22,47 @@
     </div>
     <div
       id="nav-1"
-      class="surface-overlay hidden lg:flex absolute lg:static left-0 top-100 z-1 shadow-2 lg:shadow-none w-full lg:w-auto py-3 lg:py-0"
+      class="surface-overlay hidden lg:flex absolute lg:static left-0 top-100 z-1 shadow-2 lg:shadow-none w-full lg:w-auto py-3 lg:py-0 mobi"
       style="margin-left: 400px"
     ></div>
 
     <ul
       class="list-none p-0 m-0 flex select-none flex-column lg:flex-row border-top-1 border-indigo-500 lg:border-top-none"
     >
+    <li class="flex">
+      <div style="padding-left: 2px; padding-top: 20px">
+        <a routerLink="/myaccount" routerLinkActive="active-link">
+          <img
+            src="/assets/Content/ClientImages/ProductSmall/SliderBuns_64x64.jpg"
+            alt=""
+            class="img-responsive image"
+          /> </a
+        ><br />
+        <div
+          style="
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            color: #777777;
+            font-weight: bold;
+          "
+        >
+          <a
+            routerLink="/myaccount"
+            style="
+              text-decoration: none;
+              text-align: center;
+              font-family: 'Open Sans', sans-serif;
+              color: #777777;
+              font-weight: bold;
+            "
+            routerLinkActive="active-link"
+            >My Account</a
+          >
+        </div>
+      </div>
+    </li>
       <li class="flex">
-        <div style="padding-left: 2px;    padding-top: 20px;">
+        <div style="padding-left: 2px; padding-top: 20px">
           <a routerLink="/login" routerLinkActive="active-link">
             <img
               src="/assets/Content/ClientImages/ProductSmall/SliderBuns_64x64.jpg"
@@ -62,7 +94,7 @@
         </div>
       </li>
       <li class="flex">
-        <div style="padding-left: 2px;    padding-top: 20px;">
+        <div style="padding-left: 2px; padding-top: 20px">
           <a routerLink="/home" routerLinkActive="active-link"
             ><img
               src="assets/Content/ClientImages/ProductSmall/Croissant_64x64.jpg"
@@ -94,7 +126,7 @@
         </div>
       </li>
       <li class="flex">
-        <div style="padding-left: 2px;    padding-top: 20px;">
+        <div style="padding-left: 2px; padding-top: 20px">
           <a routerLink="/contact" routerLinkActive="active-link"
             ><img
               src="assets/Content/ClientImages/ProductSmall/SourdoughLoaf_64X64.jpg"
@@ -125,7 +157,7 @@
         </div>
       </li>
       <li class="flex">
-        <div style="padding-left: 2px;    padding-top: 20px;">
+        <div style="padding-left: 2px; padding-top: 20px">
           <a routerLink="/about" routerLinkActive="active-link"
             ><img
               src="assets/Content/ClientImages/ProductSmall/Ciabatta_64x64.jpg"
@@ -155,7 +187,50 @@
           </div>
         </div>
       </li>
+      <li class="flex">
+        <div style="padding-left: 2px; padding-top: 20px">
+          <a routerLink="/about" routerLinkActive="active-link"
+            ><img
+              src="assets/Content/ClientImages/ProductSmall/PainAuChocolat_64x64.jpg"
+              alt=""
+              class="img-responsive image" /></a
+          ><br />
+          <div
+            style="
+              text-align: center;
+              font-family: 'Open Sans', sans-serif;
+              color: #777777;
+              font-weight: bold;
+            "
+          >
+            <a
+              routerLink="/about"
+              style="
+                text-decoration: none;
+                text-align: center;
+                font-family: 'Open Sans', sans-serif;
+                color: #777777;
+                font-weight: bold;
+              "
+              routerLinkActive="active-link"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </li>
     </ul>
+  </div>
+  <div class="w-full md:w-12 lg:w-4 p-3 mobile-menu">
+    <button
+      pButton
+      pRipple
+      icon="pi pi-bars"
+      class="p-button-rounded p-button-text"
+      (click)="menu.toggle($event)"
+    ></button>
+
+    <!-- Menu (Displays below the button) -->
+    <p-tieredMenu #menu [model]="menuItems" [popup]="true"></p-tieredMenu>
   </div>
 </div>
 <router-outlet></router-outlet>

@@ -20,6 +20,7 @@ import { Community } from '../../../model/class/community';
 import { Individual } from '../../../model/class/individual';
 import { IndividualComponent } from '../../individual/individual.component';
 import { BusinessComponent } from '../../business/business.component';
+import { CommunityComponent } from "../../community/community.component";
 
 interface City {
   name: string;
@@ -28,7 +29,7 @@ interface City {
 @Component({
   selector: 'app-register',
   imports: [
-     DropdownModule,
+    DropdownModule,
     InputTextModule,
     CommonModule,
     FormsModule,
@@ -37,8 +38,9 @@ interface City {
     RippleModule,
     ButtonModule,
     CalendarModule,
-    RadioButton,IndividualComponent,BusinessComponent
-  ],
+    RadioButton, IndividualComponent, BusinessComponent,
+    CommunityComponent
+],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -64,7 +66,7 @@ export class RegisterComponent implements OnInit {
       { name: 'Paris', code: 'PRS' },
     ];
 
-    this.selectedType = 'Individual';
+    this.selectedType = 'Community';
    
   
   }

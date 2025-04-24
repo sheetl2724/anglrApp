@@ -7,8 +7,9 @@
     </div>
 </div>
 <div class="p-1"></div>
+
 <div  style="background-color:rgb(240, 237, 237) ;">
-    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="grid grid-nogutter">
         <div class="col-12 md:col-6 bg-no-repeat bg-cover p-8"
             style="background-image: url('assets/images/blocks/contact/contact-1.png')">
@@ -31,33 +32,38 @@
                 </li>
             </ul>
         </div>
+        
         <div class="col-12 md:col-6">
             <div class="p-fluid formgrid grid px-4 py-8 md:px-6 lg:px-8">
                 <div class="field col-12 lg:col-6 mb-4">
-                    <input id="firstname" type="text" [(ngModel)]="firstname" class="py-3 px-2 text-lg" pInputtext placeholder="First Name">
+                    <input id="firstname" type="text" [(ngModel)]="firstname" formControlName="firstname" class="py-3 px-2 text-lg" pInputtext placeholder="First Name">
                 </div>
                 <div class="field col-12 lg:col-6 mb-4">
-                    <input id="lastname" type="text" [(ngModel)]="lastname"
+                    <input id="lastname" type="text" [(ngModel)]="lastname" formControlName="lastname"
                      class="py-3 px-2 text-lg" pInputtext placeholder="Last Name">
                 </div>
                 <div class="field col-12 mb-4">
-                    <input id="email" type="text" [(ngModel)]="email" pInputtext class="py-3 px-2 text-lg" placeholder="Email">
+                    <input id="email" type="text" [(ngModel)]="email" formControlName="email"  pInputtext class="py-3 px-2 text-lg" placeholder="Email">
+                    <small  *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"     class="block p-error"          >
+                        <div *ngIf="emailId.errors?.['required']">Email is required.</div>
+                        <div *ngIf="emailId.errors?.['email']">Email should be valid</div>
+                      </small>
                 </div>
                 <div class="field col-12 mb-4">
-                    <input id="phone" type="text" [(ngModel)]="phone" pInputtext class="py-3 px-2 text-lg" placeholder="Phone">
+                    <input id="phone" type="text" [(ngModel)]="phone" formControlName="phone" pInputtext class="py-3 px-2 text-lg" placeholder="Phone">
                 </div>
                 <div class="field col-12 mb-4">
                     <textarea id="message" pInputtextarea rows="3" [(ngModel)]="message" autoResize="true" class="py-3 px-2 text-lg"
-                        placeholder="Message" style="border-radius: 8px;"></textarea>
+                        placeholder="Message" formControlName="message" style="border-radius: 8px;"></textarea>
                 </div>
                 <div class="col-12 text-right">
-                    <button type="button" pButton pRipple label="Submit" icon="pi pi-envelope" severity="danger" 
+                    <button type="submit" pButton pRipple label="Submit" icon="pi pi-envelope" severity="danger" [disabled]="contactForm.invalid"
                         class="px-5 py-3 w-auto btn btn-danger"></button>
                     <button type="button" pButton pRipple label="Reset" icon="pi pi-envelope" severity="primary" 
-                        class="px-5 py-3 w-auto btn btn-default"></button>
+                        class="px-5 py-3 w-auto btn btn-default" (click)="onReset()"></button>
                 </div>
 
             </div>
         </div>
     </div>
-</div>
+</form>  

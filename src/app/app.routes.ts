@@ -12,6 +12,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ProdNavListComponent } from './components/components/prod-nav-list/prod-nav-list.component';
 import { Home2Component } from './components/components/home2/home2.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CommunityComponent } from './components/community/community.component';
+import { ForgotpasswordComponent } from './components/components/forgotpassword/forgotpassword.component';
+import { MyaccountComponent } from './components/components/myaccount/myaccount.component';
 
 export const routes: Routes = [
   {
@@ -68,5 +71,17 @@ export const routes: Routes = [
   {
     path:'footer',
     component:FooterComponent
+  },
+  {
+    path:'community',
+    component:CommunityComponent
+  },
+  {
+    path:'forgotpassword',
+    component:ForgotpasswordComponent
+  },
+  {
+    path:'myaccount',
+    component:MyaccountComponent
   }
 ];

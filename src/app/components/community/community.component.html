@@ -1,0 +1,169 @@
+<form [formGroup]="communityForm" (ngSubmit)="onSave()">
+    <div class="community-box">
+        <div class="grid formgrid p-fluid">
+            <div class="field mb-4 col-12 md:col-6">
+              <label for="company_name" class="font-medium text-900"
+                >Community Name <a style="color: red">*</a></label
+              >
+      
+              <div class="card flex justify-content-start" style="width: 100%">
+              
+               <p-dropdown
+                  [options]="communities"
+                
+                  formControlName="selectedComunity"
+                  optionLabel="name" 
+                  [style]="{ width: '100%' }" 
+                  placeholder="Select a Community"
+                />
+              </div>
+            </div>
+            <div class="field mb-4 col-12 md:col-6">
+              <label for="firstName" class="font-medium text-900"
+                >First Name <a style="color: red">*</a></label
+              >
+              <input
+                id="firstName"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="firstName"
+                name="firstName"
+              />
+            </div>
+            <div class="field mb-4 col-12 md:col-6">
+              <label for="lastName" class="font-medium text-900"
+                >Last Name <a style="color: red">*</a></label
+              >
+              <input
+                id="lastName"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="lastName"
+                name="lastName"
+              />
+            </div>
+            <div class="field mb-4 col-12 md:col-6">
+              <label for="mobileNumber" class="font-medium text-900"
+                >Mobile Number <a style="color: red">*</a></label
+              >
+              <input
+                id="mobileNumber"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="mobileNumber"
+                name="mobileNumber"
+              />
+            </div>
+            <div
+              class="form-group field mb-4 col-12 md:col-6"
+              [ngClass]="displayFieldCss('email')"
+            >
+              <label for="email" class="font-medium text-900"
+                >Email<a style="color: red">*</a></label
+              >
+              <input
+                id="email"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="email"
+                name="email"
+              />
+              <small
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="block p-error"
+              >
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['email']">Email should be valid</div>
+              </small>
+            </div>
+            <div class="field mb-4 col-12 md:col-1">
+              <label for="doorNo" class="font-medium text-900"
+                >Door No<a style="color: red">*</a></label
+              >
+              <input
+                id="doorNo"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="doorNo"
+                name="doorNo"
+              />
+            </div>
+            <div class="field mb-4 col-12 md:col-4">
+              <label for="appartment" class="font-medium text-900"
+                >Appartment Name<a style="color: red">*</a></label
+              >
+              <input
+                id="appartment"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="apartmentName"
+                name="apartmentName"
+              />
+            </div>
+      
+            <div class="field mb-4 col-12 md:col-6">
+              <label for="address" class="font-medium text-900"
+                >Address<a style="color: red">*</a></label
+              >
+              <textarea
+                id="address"
+                pinputtextarea=""
+                class="p-inputtextarea p-inputtext p-component p-element p-inputtextarea-resizable"
+                ng-reflect-auto-resize="true"
+                rows="5" autocomplete="off"
+                pInputText
+                formControlName="address"
+                name="address"
+                style="height: 132px; overflow: hidden; resize: vertical"
+              ></textarea>
+            </div>
+            <div class="field mb-4 col-12 md:col-1">
+              <label for="due_date" class="font-medium text-900"
+                >Pin Code<a style="color: red">*</a></label
+              >
+              <input
+                id="customer_email"
+                type="text"
+                pInputText autocomplete="off"
+                formControlName="pinCode"
+                name="pinCode"
+              />
+            </div>
+      
+            <div class="field mb-4 col-12 flex align-items-center">
+              <p-checkbox
+                name="isAgreed"
+                formControlName="isAgreed"
+                [(ngModel)]="isAgreed"
+                binary="true"
+                inputId="chk1"
+                (onChange)="onCheckboxChange()"
+              ></p-checkbox>
+      
+       
+              <span class="ml-2 text-700"
+                >I Agree -
+                <span style="color: rgb(253, 121, 71)"> Terms And Conditions</span
+                >&nbsp;&&nbsp;<span style="color: rgb(253, 121, 71)"
+                  >Privacy Policy</span
+                ></span
+              >
+      
+              <div style="margin-left: 1200px">
+                <button
+                  pButton
+                  pRipple
+                  type="submit"
+                  label="Register"
+                  icon="pi pi-file"
+                  class="w-auto p-button"
+                  [disabled]="communityForm.invalid"
+                ></button>
+              </div>
+            </div>
+      
+            <div class="surface-border border-top-1 opacity-50 mb-4 col-12"></div>
+          </div>
+    
+    </div>
+</form>

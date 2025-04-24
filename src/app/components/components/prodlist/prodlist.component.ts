@@ -91,7 +91,7 @@ export class ProdlistComponent implements OnInit {
 
   onDateSelected(event: Date) {
     console.log('User selected:', event);
-    debugger;
+  
     this.loadProdOnDate(this.userObj, new Date('2024-12-31T13:38:08'));
   }
   addToCart() {}//to do
@@ -211,7 +211,7 @@ export class ProdlistComponent implements OnInit {
   }
 
   loadProdOnDate(userObj: User, date: Date) {
-    debugger;
+    
     this.productService
       .get_ProductList(this.userObj)
       .subscribe((res: APIResponseModel) => {

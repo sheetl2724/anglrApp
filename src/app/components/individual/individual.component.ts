@@ -11,6 +11,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 @Component({
@@ -24,7 +25,7 @@ import { CalendarModule } from 'primeng/calendar';
       StyleClassModule,
       RippleModule,
       ButtonModule,
-      CalendarModule,ReactiveFormsModule
+      CalendarModule,ReactiveFormsModule,AutoCompleteModule
       ],
   templateUrl: './individual.component.html',
   styleUrl: './individual.component.scss',
@@ -52,28 +53,37 @@ export class IndividualComponent implements OnInit {
   address:string='';
   pincode:string='';*/
   isAgreed=false;
+  @Input() selectType:string='';
   ngOnInit(): void {
     this.communities = [
       { name: 'None' },
       { name: 'Adarsh Palm Meadows' },
       { name: 'Adarsh Palm Retreat Villas Phase – 1' },
     ];
+
+
+    this.individualForm.get('selectedComunity')?.setValue(this.communities[0]);
   }
   constructor(private fb: FormBuilder) {
     this.individualForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
+      mobileNumber: ['', [Validators.required,Validators.pattern(/^\d{10}$/)]],
       doorNo: ['', Validators.required],
       apartmentName: ['', Validators.required],
       address: ['', Validators.required],
       pinCode: ['', Validators.required],
       isAgreed: [false, Validators.required],
-      selectedComunity: ['', Validators.required]
+      //selectedComunity: [this.communities]
+      selectedComunity: [this.communities]
     });
+   
     this.errorMsg='';
     this.displayError=true;
+  }
+  get mobileNumber(){
+    return this.individualForm.controls['mobileNumber'];
   }
   get email() {
     return this.individualForm.controls['email'];

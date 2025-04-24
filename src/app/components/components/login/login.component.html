@@ -3,10 +3,10 @@
     
         <div class="surface-card p-4 shadow-2 border-round  lg:w-6" style="width:360px">
             <div class="text-center mb-5">
-                <img src="assets/images/blocks/logos/hyper.svg" alt="Image" height="50" class="mb-3">
-                <div class="text-3xl font-medium mb-3" style="color: #666666;">Login</div>
-                <span class=" font-medium line-height-3" style="color: forestgreen;font-size: 19px;">Create New Account</span>
-                <a class="font-medium no-underline ml-2  cursor-pointer"  routerLink="/register" routerLinkActive="active-link">Sign Up!</a>
+            <!-- <img src="assets/images/blocks/logos/hyper.svg" alt="Image" height="50" class="mb-3">-->
+                <div class="text-3xl font-medium mb-3" style="color: rgb(253, 121, 71)">Login</div>
+
+                <a class="font-medium no-underline ml-2  cursor-pointer" style="color: forestgreen;font-size: 19px;" routerLink="/register" routerLinkActive="active-link">Create New Account</a>
             </div>
         
             <div >
@@ -38,7 +38,7 @@
                         <p-checkbox id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
                         <label for="rememberme1">Remember me</label>
                   </div>
-                    <a class="font-medium no-underline ml-2  text-right cursor-pointer" style="color:gray ;">Forgot password?</a>
+                    <a class="font-medium no-underline ml-2  text-right cursor-pointer"  routerLink="/forgotpassword" routerLinkActive="active-link" style="color:gray ;">Forgot password?</a>
                 </div>
         
                 <button pButton pRipple label="Sign In" style="background: #f75353" icon="pi pi-user" class="w-full"   [disabled]="loginForm.invalid"

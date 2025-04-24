@@ -7,14 +7,21 @@
         >
 
         <div class="card flex justify-content-start" style="width: 100%">
+        
           <p-dropdown
+    [options]="communities"
+    formControlName="selectedComunity"
+    optionLabel="name" [style]="{ width: '100%' }" 
+    placeholder="Select a Community">
+  </p-dropdown>
+<!-- <p-dropdown
             [options]="communities"
             [(ngModel)]="selectedComunity"
             formControlName="selectedComunity"
-            optionLabel="name"
-            [style]="{ width: '100%' }"
+            optionLabel="name" 
+            [style]="{ width: '100%' }" 
             placeholder="Select a Community"
-          />
+          />-->
         </div>
       </div>
       <div class="field mb-4 col-12 md:col-6">
@@ -24,7 +31,7 @@
         <input
           id="firstName"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="firstName"
           name="firstName"
         />
@@ -36,7 +43,7 @@
         <input
           id="lastName"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="lastName"
           name="lastName"
         />
@@ -48,10 +55,17 @@
         <input
           id="mobileNumber"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="mobileNumber"
           name="mobileNumber"
         />
+        <small
+        *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="mobileNumber.errors?.['required']">Mobile Number is required.</div>
+        <div *ngIf="mobileNumber.errors?.['pattern']">Mobile Number should be valid</div>
+      </small>
       </div>
       <div
         class="form-group field mb-4 col-12 md:col-6"
@@ -63,7 +77,7 @@
         <input
           id="email"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="email"
           name="email"
         />
@@ -82,7 +96,7 @@
         <input
           id="doorNo"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="doorNo"
           name="doorNo"
         />
@@ -94,7 +108,7 @@
         <input
           id="appartment"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="apartmentName"
           name="apartmentName"
         />
@@ -109,7 +123,7 @@
           pinputtextarea=""
           class="p-inputtextarea p-inputtext p-component p-element p-inputtextarea-resizable"
           ng-reflect-auto-resize="true"
-          rows="5"
+          rows="5" autocomplete="off"
           pInputText
           formControlName="address"
           name="address"
@@ -123,7 +137,7 @@
         <input
           id="customer_email"
           type="text"
-          pInputText
+          pInputText autocomplete="off"
           formControlName="pinCode"
           name="pinCode"
         />

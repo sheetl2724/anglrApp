@@ -10,8 +10,38 @@
 <div class="surface-ground px-4 py-8 md:px-6 lg:px-8 ">
    
     <div class="grid nogutter ">
-        <div class="col-12 lg:col-4 p-3">
-            <a (click)="showDiv()"><img src="assets/Content/ClientImages/Banner/Focaccia-800x600.jpg" alt="Image" class="block w-full border-round-top"></a>
+     
+            <div class="col-10 lg:col-5 p-3">
+            <p-carousel [value]="blogs" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions"  autoplayInterval="3000" >
+                <ng-template let-blog #item>
+                    <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4">
+                        <div class="mb-4">
+                            <div class="relative mx-auto">
+                                
+                          
+                        
+                               <img [src]=blog.image alt="no blog" class="w-full rounded-border" />
+                         
+                            </div>
+                            <div class="p-4" >
+                                <span class="block font-medium  mb-3"><h3 [innerHTML]="blog.h31" style="color: brown;"></h3></span>
+            
+                                <div class="line-height-3 mb-3 text-700"><p [innerHTML]="blog.p1"></p></div>
+                                <span class="block font-medium  mb-3"><h3 [innerHTML]="blog.h32" style="color: brown;"></h3></span>
+            
+                                <div class="line-height-3 mb-3 text-700"><p [innerHTML]="blog.p2"></p></div>
+                            </div>
+                        </div>
+        
+               
+                    </div>
+                </ng-template>
+            </p-carousel>
+       
+        </div>
+        
+    <!--<div class="col-10 lg:col-5 p-3">
+           <a (click)="showDiv()"><img src="assets/Content/ClientImages/Banner/Focaccia-800x600.jpg" alt="Image" class="block w-full border-round-top"></a> 
             <div class="shadow-2 border-round h-full surface-card"  *ngIf="isVisible">
                
                 
@@ -23,10 +53,10 @@
 
                     <div class="line-height-3 mb-3 text-700"><p>Our products are 100% natural, made using unbleached flour and we do not use any preservatives or bread improvers. We use finest of ingredients and our products are made using traditional authentic recipes with the help of modern process.</p></div>
                 </div>
-            </div>
+            </div>      
         </div>
         <div class="col-12 lg:col-4 p-3">
-            <a (click)="showDiv2()"><img src="assets/Content/ClientImages/ProductLarge/SourdoughLoaf_1920x1280.jpg" alt="Image" class="block w-full border-round-top"></a>
+           <a (click)="showDiv2()"><img src="assets/Content/ClientImages/ProductLarge/SourdoughLoaf_1920x1280.jpg" alt="Image" class="block w-full border-round-top"></a>
             
             <div class="shadow-2 border-round h-full surface-card" *ngIf="isVisible2">
                 
@@ -42,7 +72,7 @@
                         My curiosity grew. I broke down the process into over 100 parameters, dived into the internet to read more, joined groups to learn what I could. I experimented with wild yeast water, using coffee berries, gooseberries and bamboo rice for fermentation. All this while, I was giving bread away free to friends and family. In 2016, I began to take orders, still baking out of my home. My reputation grew by word of mouth—people loved the breads I baked. A couple of pop-up stalls at organized events received an overwhelming response. I continued baking at home. By now I had reached a level of consistency that pleased me, and I began baking commercially in October 2017. After all these years, I feel there is still so much more to learn about the captivating world of sourdough.</p></div>
                 </div>
             </div>
-        </div>
+        </div>-->
   
     </div>
 </div>

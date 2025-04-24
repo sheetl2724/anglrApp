@@ -74,10 +74,11 @@
 
     <a pRipple class="flex px-6 p-3 h-full lg:px-3 lg:py-2 align-items-center text-600 border-left-2 lg:border-bottom-2 lg:border-left-none border-transparent hover:border-blue-500 font-medium cursor-pointer transition-colors transition-duration-150">
       
-      <span><p-calendar styleClass="w-full md:w-14rem " [readonlyInput]="true" inputId="range"></p-calendar><i class="pi pi-calendar mr-2"></i></span>
+      <span><p-calendar styleClass="w-full md:w-14rem " [readonlyInput]="true" inputId="range"></p-calendar><i class="pi pi-calendar mr-2 "></i></span>
   </a>
 
-    <div style="margin-left: 20rem !important">
+    <div style="    margin-left: 18rem !important;
+    margin-top: 2rem !important;">
     <!-- <span class="p-input-icon-right w-full mt-2 md:mt-0 md:w-15rem">
         <i class="pi pi-search"></i>
         <input
@@ -90,7 +91,7 @@
         />
       </span>-->
       <span class="p-input-icon-right mt-5 mb-2 md:mt-0 md:mb-0 w-full lg:w-25rem">
-        <i class="pi pi-search text-gray-400"></i>
+        <i class="pi pi-search text-gray-400 "></i>
           
           <input type="text" class="p-inputtext w-full lg:w-25rem surface-50" placeholder="Search" [(ngModel)]="searchText" (input)="searchProd(searchText)"/>
     </span>
